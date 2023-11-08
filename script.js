@@ -1,32 +1,41 @@
-// const secretNumber = Math.floor(Math.random() * 26) + 1;
-// console.log(secretNumber);
 
-// const guessButton = document.getElementById('guessButton');
-
-
-// guessButton.addEventListener('click', () => {
-    
-//     const guessedNumber = parseInt(document.getElementById('guessInput').value);
-
-
-//     console.log(guessedNumber);
-// })
-
-
-// Generate a secret number
-const secretNumber = Math.floor(Math.random() * 26) + 1;
-
-// Handle user input and provide feedback
+const randomGuess = Math.floor(Math.random() * 26) + 1;
+console.log(randomGuess);
 const guessButton = document.getElementById('guessButton');
-guessButton.addEventListener('click', () => {
-    preventDefault();
+
+
+
+
+guessButton.addEventListener('click', (event) => {
+  event.preventDefault();
   const userGuess = parseInt(document.getElementById('guessInput').value);
 
-  if (userGuess === secretNumber) {
-    document.getElementById('feedback').textContent = 'Awesome! You guessed correctly.';
-  } else if (userGuess > secretNumber) {
-    document.getElementById('feedback').textContent = 'Your guess is too high.';
-  } else {
-    document.getElementById('feedback').textContent = 'Your guess is too low.';
+  if (userGuess === randomGuess) {
+    alert(`You won! The actual guess was ${randomGuess}`);
+    location.reload(); // Refresh the page
+  } else if (userGuess < randomGuess - 3) {
+    alert('You are too low. The actual guess was ' + randomGuess);
+    location.reload();
+  } else if (userGuess > randomGuess + 3) {
+    alert('You are too high. The actual guess was ' + randomGuess);
+    location.reload();
+  } else if (Math.abs(userGuess-randomGuess)= 2) { 
+alert ('Gosh you were so close, the number was ' + randomGuess);
+location.reload();
+  }
+   else {
+    alert('You lost. The actual guess was ' + randomGuess);
+    location.reload();
   }
 });
+const guessInput = document.getElementById('guessInput');
+guessInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    guessButton.click(); // Simulate clicking the guess button
+  }
+});
+ guessInput.addEventListener('keyup' , (event)=>{
+if (guessInput === ' ' ){
+    guessButton.click();
+} 
+ });

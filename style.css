@@ -10,6 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-image: url(../Assets/genius.webp);
   }
   
   h1 {
@@ -32,12 +33,20 @@ body {
   }
   
   button {
-    padding: 10px 20px;
-    background-color: #007bff;
+    padding: 10px;
+    background-color: #1f6403;
     color: white;
     border: none;
     cursor: pointer;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 150px;
   }
+
+  button:active {
+    background-color: rgb(200, 255, 0);
+    }
   
   #feedback {
     margin-top: 20px;
